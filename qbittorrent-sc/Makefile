@@ -25,7 +25,7 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/qbittorrent
+define Package/qbittorrent-sc
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
@@ -35,7 +35,7 @@ define Package/qbittorrent
 	PROVIDES:=qBittorrent
 endef
 
-define Package/qbittorrent/description
+define Package/qbittorrent-sc/description
   qBittorrent is a bittorrent client programmed in C++ / Qt that uses
   libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
   It aims to be a good alternative to all other bittorrent clients out
@@ -53,18 +53,18 @@ CMAKE_OPTIONS += \
 	-DQT_ADDITIONAL_PACKAGES_PREFIX_PATH=$(STAGING_DIR_HOSTPKG)
 
 
-define Package/qbittorrent/conffiles
-/etc/config/qbittorrent
+define Package/qbittorrent-sc/conffiles
+/etc/config/qbittorrent-sc
 endef
 
-define Package/qbittorrent/install
+define Package/qbittorrent-sc/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/qbittorrent-nox $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/qbittorrent-sc-nox $(1)/usr/bin
 
-	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d $(1)/usr/share/qbittorrent
-	$(INSTALL_BIN) ./files/qbittorrent.init $(1)/etc/init.d/qbittorrent
-	$(INSTALL_CONF) ./files/qbittorrent.config $(1)/etc/config/qbittorrent
-	$(INSTALL_CONF) ./files/qBittorrent.conf.example $(1)/usr/share/qbittorrent/qBittorrent.conf.example
+	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d $(1)/usr/share/qbittorrent-sc
+	$(INSTALL_BIN) ./files/qbittorrent.init $(1)/etc/init.d/qbittorrent-sc
+	$(INSTALL_CONF) ./files/qbittorrent.config $(1)/etc/config/qbittorrent-sc
+	$(INSTALL_CONF) ./files/qBittorrent.conf.example $(1)/usr/share/qbittorrent-sc/qBittorrent.conf.example
 endef
 
 $(eval $(call BuildPackage,qbittorrent-sc))
