@@ -6,7 +6,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=qbittorrent
+PKG_NAME:=qBittorrent
 PKG_VERSION:=5.0.0
 PKG_RELEASE=1
 
@@ -29,7 +29,7 @@ define Package/qbittorrent
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
-	DEPENDS:=+USE_GLIBC:librt +USE_GLIBC:libpthread +libgcc +libstdcpp +libtorrent-rasterbar +libQt6Core +libQt6Network +libQt6Sql +libQt6Xml +qt6-plugin-libqopensslbackend +qt6-plugin-libqsqlite
+	DEPENDS:=+libtorrent-rasterbar +libQt6Core +libQt6Network +libQt6Sql +libQt6Xml +qt6-plugin-libqopensslbackend +qt6-plugin-libqsqlite
 	TITLE:=bittorrent client programmed in C++ / Qt
 	URL:=https://www.qbittorrent.org/
 	PROVIDES:=qBittorrent
@@ -52,9 +52,6 @@ CMAKE_OPTIONS += \
 	-DVERBOSE_CONFIGURE=ON \
 	-DQT_ADDITIONAL_PACKAGES_PREFIX_PATH=$(STAGING_DIR_HOSTPKG)
 
-ifdef CONFIG_USE_GLIBC
-  TARGET_LDFLAGS += -ldl -lrt -lpthread
-endif
 
 define Package/qbittorrent/conffiles
 /etc/config/qbittorrent
@@ -70,4 +67,4 @@ define Package/qbittorrent/install
 	$(INSTALL_CONF) ./files/qBittorrent.conf.example $(1)/usr/share/qbittorrent/qBittorrent.conf.example
 endef
 
-$(eval $(call BuildPackage,qbittorrent))
+$(eval $(call BuildPackage,qBittorrent))
