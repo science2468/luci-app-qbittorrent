@@ -13,7 +13,7 @@ PKG_RELEASE=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/qbittorrent/qBittorrent/tar.gz/release-$(PKG_VERSION)?
 PKG_HASH:=9a24a6b95e9afac826295b8203685a515b13e77eb98bb8ed21c814916b999f6e
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-release-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-release-$(PKG_VERSION)/
 
 PKG_LICENSE:=GPL-2.0-or-later
 PKG_LICENSE_FILES:=COPYING
@@ -21,6 +21,7 @@ PKG_CPE_ID:=cpe:/a:qbittorrent:qbittorrent
 
 PKG_BUILD_DEPENDS:=qt6tools/host
 PKG_BUILD_PARALLEL:=1
+PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
