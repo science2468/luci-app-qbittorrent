@@ -10,7 +10,7 @@ PKG_NAME:=qbittorrent-sc
 PKG_VERSION:=5.0.0
 PKG_RELEASE=1
 
-PKG_SOURCE:=qbittorrent-release-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/qbittorrent/qBittorrent/tar.gz/release-$(PKG_VERSION)?
 PKG_HASH:=9a24a6b95e9afac826295b8203685a515b13e77eb98bb8ed21c814916b999f6e
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-release-$(PKG_VERSION)
